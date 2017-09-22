@@ -32,9 +32,10 @@
         <option value="">Maak een keuze</option>
         <option value="School">School</option>
         <option value="Kantoor">Kantoor</option>
-        <option value="Winkel">Winkel</option>
+        <option value="Winkel">Winkel</option>7
         <option value="Horeca">Horeca</option>
         <option value="Industrie">Industrie</option>
+        <option value="Woonruimte">Woonruimte</option>
       </select>
     </div>
     <div>
@@ -45,7 +46,7 @@
         <option value="1 tot 3 maanden">1 tot 3 maanden</option>
         <option value="3 tot 5 maanden">3 tot 5 maanden</option>
         <option value="5 tot 12 maanden">5 tot 12 maanden</option>
-        <option value="1 jaar+">1 jaar +</option>
+        <option value="1 jaar +">1 jaar +</option>
       </select>
     </div>
     <div>
@@ -57,8 +58,15 @@
       <input type="text" name="space">
     </div>
     <div>
-      <span>Verdiepingen :</span>
-      <input type="text" name="layers">
+      <span>Verdiepingen:</span>
+      <select name="layers">
+        <option value="">Maak een keuze</option>
+        <option value="1">1 verdieping</option>
+        <option value="2">2 verdiepingen</option>
+        <option value="3">3 verdiepingen</option>
+        <option value="4">4 verdiepingen</option>
+        <option value="5+">5+ verdiepingen</option>
+      </select>
     </div>
     <div>
       <span>Parkeergelegenheid :</span>

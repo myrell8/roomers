@@ -1,4 +1,4 @@
-<form id="search-form">
+<form id="search-form" action="" method="GET">
   <div>
     <span>Ruimte beschikbaar:</span>
     <select name="ruimte">
@@ -18,24 +18,25 @@
   </div>
   <div>
   <span>Tijd beschikbaar:</span>
-  <select name="beschikbaar">
+  <select name="tijd">
     <option value="">Maak een keuze</option>
-    <option value="1">< 1 maand</option>
-    <option value="2">1 tot 3 maanden</option>
-    <option value="3">3 tot 5 maanden</option>
-    <option value="4">5 tot 12 maanden</option>
-    <option value="5">1 jaar +</option>
+    <option value="< 1 maand">< 1 maand</option>
+    <option value="1 tot 3 maanden">1 tot 3 maanden</option>
+    <option value="3 tot 5 maanden">3 tot 5 maanden</option>
+    <option value="5 tot 12 maanden">5 tot 12 maanden</option>
+    <option value="1 jaar +">1 jaar +</option>
   </select>
   </div>
   <div>
     <span>Type gebouw:</span>
     <select name="type">
       <option value="">Maak een keuze</option>
-      <option value="1">School</option>
-      <option value="2">Kantoor</option>
-      <option value="3">Winkel</option>
-      <option value="4">Horeca</option>
-      <option value="5">Industrie</option>
+      <option value="School">School</option>
+      <option value="Kantoor">Kantoor</option>
+      <option value="Winkel">Winkel</option>
+      <option value="Horeca">Horeca</option>
+      <option value="Industrie">Industrie</option>
+      <option value="Woonruimte">Woonruimte</option>
     </select>
   </div>
   <div>
@@ -46,33 +47,18 @@
     <option value="2">2 verdiepingen</option>
     <option value="3">3 verdiepingen</option>
     <option value="4">4 verdiepingen</option>
-    <option value="5">5+ verdiepingen</option>
+    <option value="5+">5+ verdiepingen</option>
   </select>
   </div>
   <div>
-    <span>Leeftijd gebouw:</span>
-    <select name="leeftijd">
+    <span>Parkeermogelijkheid:</span>
+    <select name="parkeer">
       <option value="">Maak een keuze</option>
-      <option value="1">< 2 jaar</option>
-      <option value="2">2 tot 5 jaar</option>
-      <option value="3">5 tot 10 jaar</option>
-      <option value="4">10 tot 15 jaar</option>
-      <option value="5">15 tot 20 jaar</option>
-      <option value="6">20 tot 30 jaar</option>
-      <option value="7">30 tot 40 jaar</option>
-      <option value="8">40 tot 50 jaar</option>
-      <option value="9">50+ jaar</option>
+      <option value="Ja">Ja</option>
+      <option value="Nee">Nee</option>
+      <option value="Beperkt">Beperkt</option>
+      <option value="Betaald">Betaald</option>
     </select>
-  </div>
-  <div>
-  <span>Parkeermogelijkheid:</span>
-  <select name="parkeer">
-    <option value="">Maak een keuze</option>
-    <option value="1">Ja</option>
-    <option value="2">Nee</option>
-    <option value="3">Beperkt</option>
-    <option value="4">Betaald</option>
-  </select>
   </div>
   <input id="search-button" type="submit" value="Zoeken">
 </form>

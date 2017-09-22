@@ -516,7 +516,6 @@ a {
 #search-form{
   margin: 0 auto;
   display: flex;
-  justify-content: space-around;
   width: 60%;
   flex-wrap: wrap;
 }
@@ -534,6 +533,7 @@ a {
 #search-button{
   font-size: 120%;
   margin-top: 20px;
+  margin-left: 25%;
   width: 50%;
   padding: 5px;
   background-color: #3F5765;

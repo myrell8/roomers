@@ -12,8 +12,81 @@ $buildingquery = "
   SELECT *
   FROM building, user
   WHERE userID = user_ID
-  ORDER BY buildingID
   ";
+
+$orderBy = " ORDER BY buildingID ASC";
+
+if (isset($_GET['ruimte']) && $_GET['ruimte'] != "") {
+  $searchRuimte = $_GET['ruimte'];
+  if ($searchRuimte == 1) {
+    $minRuimte = 0;
+    $maxRuimte = 50;
+  }
+  elseif ($searchRuimte == 2) {
+    $minRuimte = 50;
+    $maxRuimte = 100;
+  }
+  elseif ($searchRuimte == 3) {
+    $minRuimte = 100;
+    $maxRuimte = 150;
+  }
+  elseif ($searchRuimte == 4) {
+    $minRuimte = 150;
+    $maxRuimte = 200;
+  }
+  elseif ($searchRuimte == 5) {
+    $minRuimte = 200;
+    $maxRuimte = 250;
+  }
+  elseif ($searchRuimte == 6) {
+    $minRuimte = 250;
+    $maxRuimte = 300;
+  }
+  elseif ($searchRuimte == 7) {
+    $minRuimte = 300;
+    $maxRuimte = 350;
+  }
+  elseif ($searchRuimte == 8) {
+    $minRuimte = 350;
+    $maxRuimte = 400;
+  }
+  elseif ($searchRuimte == 9) {
+    $minRuimte = 400;
+    $maxRuimte = 450;
+  }
+  elseif ($searchRuimte == 10) {
+    $minRuimte = 450;
+    $maxRuimte = 500;
+  }
+  else{
+    $minRuimte = 500;
+    $maxRuimte = 99999;
+  }
+
+  $buildingquery = $buildingquery . " AND space BETWEEN " . $minRuimte . " AND " . $maxRuimte;
+}
+
+if (isset($_GET['tijd']) && $_GET['tijd'] != "") {
+  $searchTijd = $_GET['tijd'];
+  $buildingquery = $buildingquery . " AND renttime = '" . $searchTijd . "'";
+}
+
+if (isset($_GET['type']) && $_GET['type'] != "") {
+  $searchType = $_GET['type'];
+  $buildingquery = $buildingquery . " AND mainfunction = '" . $searchType . "'";
+}
+
+if (isset($_GET['verdiepingen']) && $_GET['verdiepingen'] != "") {
+  $searchLayers = $_GET['verdiepingen'];
+  $buildingquery = $buildingquery . " AND layers = '" . $searchLayers . "'";
+}
+
+if (isset($_GET['parkeer']) && $_GET['parkeer'] != "") {
+  $searchParking = $_GET['parkeer'];
+  $buildingquery = $buildingquery . " AND parking = '" . $searchParking . "'";
+}
+
+$buildingquery = $buildingquery . $orderBy;
 
 $buildingresource = mysqli_query($connect, $buildingquery);
 
