@@ -34,6 +34,10 @@
               if (isset($_SESSION['message'])) { ?>
               <span class="correct"><?php echo $_SESSION['message']; ?></span>
             <?php unset($_SESSION['message']); }?>
+            <?php
+              if (isset($_SESSION['loginfail'])) { ?>
+              <span class="incorrect"><?php echo $_SESSION['loginfail']; ?></span>
+            <?php unset($_SESSION['loginfail']); }?>
 
             <div class="form-input">
                 <span class="form-span">Emailadres</span>
@@ -48,7 +52,7 @@
           </div>
             <a href="#" class="forget-pw">Wachtwoord vergeten?</a>
             <input class="login-button" type="submit" name="loginbutton" value="Login">
-            <a href="index.php" class="login-button" id="login-back" value="Login">Terug</a>
+            <a href="index.php" class="login-button" id="login-back">Terug</a>
         </form>
       </div>
     </div>

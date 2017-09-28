@@ -2,7 +2,7 @@
   <div id="top">
     <div>
       <span>Naam advertentie* :</span>
-      <input type="text" name="addname">
+      <input type="text" name="addname" required>
     </div>
     <div>
       <span>Foto toevoegen :</span>
@@ -12,19 +12,19 @@
   <div id="mid">
     <div>
       <span>Straatnaam* :</span>
-      <input type="text" name="street">
+      <input type="text" name="street" required>
     </div>
     <div>
       <span>Huisnummer* :</span>
-      <input type="text" name="number">
+      <input type="text" name="number" required>
     </div>
     <div>
       <span>Postcode* :</span>
-      <input type="text" name="areacode">
+      <input type="text" name="areacode" required>
     </div>
     <div>
       <span>Stad* :</span>
-      <input type="text" name="city">
+      <input type="text" name="city" required>
     </div>
     <div>
       <span>Type gebouw :</span>
@@ -81,7 +81,7 @@
   </div> 
   <div id="bot">
     <p>Beschrijving* :</p>
-    <textarea name="description" cols="100" rows="10"></textarea>
+    <textarea name="description" cols="100" rows="10" required></textarea>
   </div>
   <input type="submit" id="create-button" value="Plaats advertentie">
 </form>

@@ -5,18 +5,28 @@
 		$email = $_POST['email'];
 		$password = $_POST['password'];
 
-		$sql = ("SELECT * FROM user WHERE email = '$email' AND password = '$password'");
+		$sql = ("SELECT * FROM user WHERE email = '$email'");
 
-		$loginResult = mysqli_query($connect, $sql);
-		if (!$row = mysqli_fetch_assoc($loginResult))
+		$loginresource = mysqli_query($connect, $sql);
+		$row = mysqli_fetch_assoc($loginresource);
+
+		if (mysqli_num_rows($loginresource) > 0)
 		{	
-			$_SESSION['incorrect'] = "login failed";
-			header("Location: ../login.php");
+			$password = md5($password) . $row['salt'];
+			if ($password == $row['password']) {
+				$_SESSION['userID'] = $row['userID'];
+				$_SESSION['username'] = $row['firstName'] . " " . $row['lastName'];
+				header("Location: ../main.php");
+			}
+			else
+			{
+				$_SESSION['loginfail'] = "Login mislukt";
+				header("Location: ../login.php");
+			}
 		}
 		else
 		{
-			$_SESSION['userID'] = $row['userID'];
-			$_SESSION['username'] = $row['firstName'] . " " . $row['lastName'];
-			header("Location: ../main.php");
+			$_SESSION['loginfail'] = "Login mislukt";
+			header("Location: ../login.php");
 		}
 ?>

@@ -171,7 +171,7 @@ $count = 0;
                   <p><?php echo $item['space'] . "m²"?></p>
                   <p><?php echo $item['firstName'] . " " . $item['lastName'] ?></p>
                 </div>
-                <a href="#" class="info-button">Meer info</a>
+                <a class="info-button" href="details.php?id=<?php echo $item['buildingID']; ?>">Meer info</a>
               </div>
             </div>
           <?php } ?>

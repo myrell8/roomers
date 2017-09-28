@@ -46,6 +46,7 @@
     ?>
     <div id="mainpage">
       <div id="content-container">
+        <img src="img/logo.png" height="400" width="400">
         <div class="accounttable">
           <div class="account-left">
             <p>Email:</p>
@@ -63,8 +64,8 @@
           </div>
         </div>
         <div id="account-container-buttons">
-          <a href="#" class="account-button">Wachtwoord veranderen</a>
-          <a href="#" class="account-button">Gegevens aanpassen</a>
+          <a href="changepass.php" class="account-button">Wachtwoord veranderen</a>
+          <a href="accountinfo.php" class="account-button">Gegevens aanpassen</a>
           <a href="main.php" class="account-button">Terug</a>
         </div>
       </div> 

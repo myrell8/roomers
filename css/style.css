@@ -12,7 +12,7 @@ body {
 }
 body::-webkit-scrollbar {
   width: 0px;
-  background-color: #FF8E33;
+  background-color: #2B3A42;
 }
 
 /*body::-webkit-scrollbar-track {
@@ -20,9 +20,9 @@ body::-webkit-scrollbar {
 }*/
  
 body::-webkit-scrollbar-thumb {
-  background-color: #1C1F1F;
+  background-color: #FF530D;
   height: 2px;
-  outline: 1px solid #FF8E33;
+  outline: 1px solid #2B3A42;
 }
 
 #home-bg{
@@ -58,18 +58,18 @@ a {
 
 .left {
   justify-content: flex-start;
-  width: 600px;
+  width: 33.333%;
   height: 75px;
 }
 
 .right {
-  justify-content: space-around;
+  justify-content: space-between;
   text-align: center;
-  width: 600px;
+  width: 33.333%;
 }
 .right a{
-  padding: 10px;
-  width: 170px;
+  padding: 2%;
+  width: 30%;
   border-radius: 5px;
   transition: 0.3s;
   background-color: #3F5765;
@@ -115,7 +115,7 @@ a {
 
 .home-subtext{
   padding-top: 2%;
-  letter-spacing: 4px;
+  letter-spacing: 2px;
   text-align: center;
   font-size: 150%;
   width: 70%;
@@ -131,19 +131,18 @@ a {
   margin-top: 70px;
   width: 250px;
   height: 60px;
-  background-color: #EFEFEF;
-  font-size: 30px;
+  background-color: rgba(43, 58, 66, 0.9);
+  font-size: 25px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 3px solid #3F5765;
   border-radius: 5px;
   transition: 0.5s;
   cursor: pointer;
-  color: #3F5765;
+  color: #bbd2dc;
 }
 .home-button:hover{
-  background-color: #BDD4DE;
+  font-size: 30px;
 }
 
 /* Login */
@@ -269,9 +268,13 @@ a {
   text-align: center;
 }
 
+#changepassform{
+  margin-top: 20px;
+}
+
 /* Register */
 
-#register-form {
+.register-form {
   margin-top: 40px;
   height: 500px;
   display: flex;
@@ -284,6 +287,9 @@ a {
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.06) inset;
   margin-bottom: 50px;
   width: 40%;
+}
+#change-form{
+  width: 70%;
 }
 .form-group-register{
   display: flex;
@@ -400,7 +406,6 @@ a {
   width: 70%;
   background-color: white;
   transition: 0.5s;
-  /* height: 5000px; */
 }
 .search-result{
   width: 100%;
@@ -417,6 +422,9 @@ a {
   justify-content: space-evenly;
   align-items: center;
 }
+.item-container form{
+  margin-right: 70px;
+}
 .item-container2{
   width: 100%;
   height: 200px;
@@ -425,9 +433,13 @@ a {
   justify-content: space-evenly;
   align-items: center;
 }
+.item-container2 form{
+  margin-right: 70px;
+}
 .result-img{
   height: 170px;
   width: 20%;
+  object-fit: cover;
 }
 .result-info{
   width: 70%;
@@ -445,7 +457,7 @@ a {
 }
 .result-title-div{
   height: 100%;
-  width: 30%;
+  width: 35%;
   padding: 10px 20px 10px 20px;
   display: flex;
   flex-direction: column;
@@ -456,7 +468,7 @@ a {
 }
 .result-div{
   height: 100%;
-  width: 70%;
+  width: 75%;
   padding: 10px 20px 10px 20px;
   display: flex;
   flex-direction: column;
@@ -479,12 +491,15 @@ a {
   justify-content: center;
   align-items: center;
   transition: 0.5s;
+  border: 0px;
+  cursor: pointer;
 }
 .info-button:hover {
   background-color: #FF530D;
 }
 
 /* Search */
+
 #search-open{
   width: 100%;
   font-size: 300%;
@@ -495,7 +510,7 @@ a {
   padding: 20px;
   color: white;
   cursor: pointer;
-  height: 110px;
+  height: 100px;
   transition: 1s;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
@@ -508,13 +523,14 @@ a {
 }
 #search-container{
   display: none;
-  padding: 20px;
   width: 100%;
   background-color: #2B3A42;
   color: white;
 }
 #search-form{
   margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
   display: flex;
   width: 60%;
   flex-wrap: wrap;
@@ -592,8 +608,8 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 20%;
-  height: 80px;
+  width: 30%;
+  height: 50px;
   background-color: #3f5765;
   margin-bottom: 50px;
   font-size: 17px;
@@ -604,12 +620,10 @@ a {
   transition: 0.3s;
 }
 #account-container-buttons{
-  width: 100%;
+  width: 90%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
-
-
 
 /* Create add */
 
@@ -621,7 +635,7 @@ a {
   color: white;
   padding: 20px;
   font-size: 110%;
-  border-bottom-right-radius: 5px
+  border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
 }
 #create-form #top{
@@ -696,4 +710,61 @@ a {
   margin-bottom: 20px;
   height: 250px;
   overflow-y: auto;
+  width: 100%;
+}
+
+/* Advertentie details */
+
+#details-div{
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+  background-color: #2B3A42;
+  color: white;
+  padding: 20px;
+}
+.details-element{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 25%;
+}
+#details-description{
+  color: white;
+  width: 100%;
+  height: 200px;
+  background-color: #3F5765;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding: 20px;
+  overflow-y: auto;
+}
+#desc-title{
+  text-align: left;
+}
+.detail-title{
+  font-weight: bold;
+  letter-spacing: 1px;
+  width: 80%;
+  text-align: center;
+  background-color: #3F5765;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+#detail-img-container{
+  width: 100%;
+  height: 720px;
+}
+#detail-img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }

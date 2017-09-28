@@ -26,7 +26,7 @@
   <body id="home-bg">
     <div class="home">
       <div class="home-content" id="login-content">
-        <form id="register-form" action="inc/signup.php" method="POST" name="rform">
+        <form class="register-form" action="inc/signup.php" method="POST" name="rform">
           <span class="login-span">Registreer</span>
           
           <?php 
@@ -36,28 +36,28 @@
 
           <div class="form-group-register">
             <div class="form-input">
-                <span class="form-span">Emailadres*</span>
+                <span class="form-span">Emailadres</span>
                 <input class="input-class" type="email" name="email" required>
             </div>
             <div class="form-input">
-                <span class="form-span">Wachtwoord*</span>
+                <span class="form-span">Wachtwoord</span>
                 <input class="input-class" type="password" name="password" required>
             </div>
             <div class="form-input">
-                <span class="form-span">Wachtwoord opnieuw*</span>
+                <span class="form-span">Wachtwoord opnieuw</span>
                 <input class="input-class" type="password" name="repassword" required>
             </div>
             <div class="form-input">
-                <span class="form-span">Voornaam*</span>
+                <span class="form-span">Voornaam</span>
                 <input class="input-class" type="text" name="firstname" required>
             </div>
             <div class="form-input">
-                <span class="form-span">Achternaam*</span>
+                <span class="form-span">Achternaam</span>
                 <input class="input-class" type="text" name="lastname" required>
             </div>
             <div class="form-input">
                 <span class="form-span">Telefoonnummer</span>
-                <input class="input-class" type="tel" name="phone" id="phone-input">
+                <input class="input-class" type="tel" name="phone" id="phone-input" required=>
             </div>
           </div>
             <input class="login-button" type="submit" name="loginbutton" value="Registreer">
