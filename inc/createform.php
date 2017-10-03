@@ -1,4 +1,4 @@
-<form id="create-form" action="inc/create.php" method="POST">
+<form id="create-form" action="inc/create.php" method="POST" enctype="multipart/form-data">
   <div id="top">
     <div>
       <span>Naam advertentie* :</span>
@@ -83,5 +83,5 @@
     <p>Beschrijving* :</p>
     <textarea name="description" cols="100" rows="10" required></textarea>
   </div>
-  <input type="submit" id="create-button" value="Plaats advertentie">
+  <input type="submit" id="create-button" value="Plaats nieuwe advertentie" name="submit">
 </form>

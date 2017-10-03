@@ -46,8 +46,12 @@
     ?>
     <div id="mainpage">
       <div id="content-container">
-        <form class="register-form" id="change-form" action="inc/signup.php" method="POST" name="rform">
-          <span class="login-span">Verander gegevens</span>
+        <form class="register-form" id="change-form" action="inc/changeinfo.php" method="POST" name="rform">
+          <span class="login-span">Verifieer en verander gegevens</span>
+          <?php 
+              if (isset($_SESSION['message'])) { ?>
+                <span class="incorrect"><?php echo $_SESSION['message']; ?></span>
+              <?php unset($_SESSION['message']); }?>
             <div class="form-group-register">
               <div class="form-input">
                   <span class="form-span">Emailadres</span>
@@ -74,8 +78,8 @@
                   <input class="input-class" type="tel" name="phone" id="phone-input" required>
               </div>
             </div>
-            <input class="login-button" type="submit" name="loginbutton" value="Registreer">
-            <a href="index.php" class="login-button" id="login-back">Terug</a>
+            <input class="login-button" type="submit" name="loginbutton" value="Doorgaan">
+            <a href="account.php" class="login-button" id="login-back">Terug</a>
         </form>
       </div> 
     </div>

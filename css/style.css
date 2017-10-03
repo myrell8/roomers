@@ -437,7 +437,7 @@ a {
   margin-right: 70px;
 }
 .result-img{
-  height: 170px;
+  height: 85%;
   width: 20%;
   object-fit: cover;
 }
@@ -510,7 +510,7 @@ a {
   padding: 20px;
   color: white;
   cursor: pointer;
-  height: 100px;
+  height: 120px;
   transition: 1s;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;

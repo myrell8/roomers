@@ -28,7 +28,7 @@
       <div class="home-content">
         <img src="img/logo.png" height="200" width="200" id="home-logo">
         <p class="home-titles">Welkom!</p>
-        <p class="home-subtext">Roomers is een platform dat helpt eigenaren van (leegstaande) panden in contact te brengen met particulieren die op zoek zijn naar een ruimte om te huren.</p>
+        <p class="home-subtext">Roomers is een platform dat eigenaren van (leegstaande) panden helpt in contact te komen met particulieren die op zoek zijn naar een ruimte om te huren.</p>
         <div class="home-button-container">
           <a href="login.php" class="home-button">Login</a>
           <a href="register.php" class="home-button">Registreer</a>
