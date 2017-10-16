@@ -1,12 +1,18 @@
-<?php	session_start();
+<?php	
+session_start();
 include 'connect.php';
+$connect = connectToDB();
 if($_SERVER['REQUEST_METHOD'] == 'POST' && empty($_POST) && empty($_FILES) && $_SERVER['CONTENT_LENGTH'] > 0)
 { 
 	die("error");
 }
 
 if (isset($_POST['submit'])) {
-	$connect = connectToDB();
+	$mid = $_POST['id'];
+	$sql = "SELECT * FROM building WHERE buildingID = $mid";
+	$result = mysqli_query($connect, $sql);
+	$row = mysqli_fetch_assoc($result);
+	
 	$user = $_SESSION['userID'];
 	$name = mysql_real_escape_string($_POST['addname']);
 	$street = $_POST['street'];
@@ -28,30 +34,31 @@ if (isset($_POST['submit'])) {
 	{
 	
 		if ($_FILES['photo']['size'] < 15242880) {
+			unlink("../".$row['picture']);
 			$namepot = md5(rand()).'.'.$ext;
-			$sqlpath = "img/".$namepot;
+			$sqlpath = "img/".$namepot;	
 			$path = "../img/".$namepot;
 			$result = move_uploaded_file($_FILES['photo']['tmp_name'], $path);
-			$sql = "INSERT INTO building(buildingID,user_ID,name,picture,street,strnumber,areacode,city,mainfunction,renttime,year,space,layers,parking,description) VALUES('','$user','$name','$sqlpath','$street','$strnumber','$area','$city','$type','$time','$year','$space','$layers','$parking','$desc')";
+			$sql = "UPDATE building SET name = '$name', street = '$street', strnumber = '$strnumber', areacode = '$area', city = '$city', mainfunction = '$type', renttime = '$time', year = '$year', space = '$space', layers = '$layers', parking = '$parking', description = '$desc',picture='$sqlpath' WHERE buildingID = " . $_SESSION['buildingID'];
 			mysqli_query($connect, $sql);
 			header("Location: ../main.php");
 		} 
 		else 
 		{
-        	$_SESSION['message'] = "Probleem bij het toevoegen van de advertentie, probeer opnieuw.";
+        	$_SESSION['message'] = "Probleem bij het aanpassen van de advertentie, probeer opnieuw.";
         	header("Location: ../main.php");
 		}
 	}
 	else
 	{
-		$sql = "INSERT INTO building(buildingID,user_ID,name,picture,street,strnumber,areacode,city,mainfunction,renttime,year,space,layers,parking,description) VALUES('','$user','$name','','$street','$strnumber','$area','$city','$type','$time','$year','$space','$layers','$parking','$desc')";
+		$sql = "UPDATE building SET name = '$name', street = '$street', strnumber = '$strnumber', areacode = '$area', city = '$city', mainfunction = '$type', renttime = '$time', year = '$year', space = '$space', layers = '$layers', parking = '$parking', description = '$desc' WHERE buildingID = " . $_SESSION['buildingID'];
 			mysqli_query($connect, $sql);
 			header("Location: ../main.php");
 	}	
 }
 else
 {
-	$_SESSION['message'] = "Probleem bij het toevoegen van de advertentie, probeer opnieuw.";
+	$_SESSION['message'] = "Probleem bij het aanpassen van de advertentie, probeer opnieuw.";
     header("Location: ../main.php");
 }
 ?>

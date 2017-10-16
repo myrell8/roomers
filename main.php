@@ -143,12 +143,12 @@ $count = 0;
               $even = "0";
             }
 
-            if ($item['picture'] == NULL) {
+            if ($item['picture1'] == NULL) {
               $picture = "img/noimg.jpg";
             }
             else
             {
-              $picture = $item['picture']; 
+              $picture = $item['picture1'];
             } ?>
 
             <div class=<?php echo $container ?>>

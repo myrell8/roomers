@@ -64,12 +64,12 @@ $count = 0;
               $even = "0";
             }
 
-            if ($item['picture'] == NULL) {
+            if ($item['picture1'] == NULL) {
               $picture = "img/noimg.jpg";
             }
             else
             {
-              $picture = $item['picture']; 
+              $picture = $item['picture1']; 
             } ?>
 
             <div class=<?php echo $container ?>>
@@ -90,15 +90,105 @@ $count = 0;
                   <p><?php echo $item['renttime'] ?></p>
                   <p><?php echo $item['space'] . "m²"?></p>
                 </div>
-                <a href="#" class="info-button">Bewerken</a>
+                <a href="edit.php?id=<?php echo $item['buildingID']; ?>" class="info-button">Bewerken</a>
               </div>
             </div>
           <?php } ?>
           </div>
-        <?php include("inc/createform.php") ?>
+      <form id="create-form" action="create.php" method="POST" enctype="multipart/form-data">
+        <div id="form-left">
+          <div id="filediv"><input name="file[]" type="file" id="file" /></div>
+          <input type="button" id="add_more" class="upload" value="Add More Files"/>
+        </div>
+        <div id="form-right">
+          <div id="top">
+            <div>
+              <span>Naam advertentie*</span>
+              <input type="text" name="addname" required>
+            </div>
+          </div>
+          <div id="mid">
+            <div>
+              <span>Straatnaam*</span>
+              <input type="text" name="street" required>
+            </div>
+            <div>
+              <span>Huisnummer*</span>
+              <input type="text" name="number" required>
+            </div>
+            <div>
+              <span>Postcode*</span>
+              <input type="text" name="areacode" required>
+            </div>
+            <div>
+              <span>Stad*</span>
+              <input type="text" name="city" required>
+            </div>
+            <div>
+              <span>Type gebouw</span>
+                <select name="type">
+                <option value="">Maak een keuze</option>
+                <option value="School">School</option>
+                <option value="Kantoor">Kantoor</option>
+                <option value="Winkel">Winkel</option>7
+                <option value="Horeca">Horeca</option>
+                <option value="Industrie">Industrie</option>
+                <option value="Woonruimte">Woonruimte</option>
+              </select>
+            </div>
+            <div>
+              <span>Tijd beschikbaar</span>
+              <select name="time">
+                <option value="">Maak een keuze</option>
+                <option value="< 1 maand">< 1 maand</option>
+                <option value="1 tot 3 maanden">1 tot 3 maanden</option>
+                <option value="3 tot 5 maanden">3 tot 5 maanden</option>
+                <option value="5 tot 12 maanden">5 tot 12 maanden</option>
+                <option value="1 jaar +">1 jaar +</option>
+              </select>
+            </div>
+            <div>
+              <span>Bouwjaar</span>
+              <input type="text" name="year">
+            </div>
+            <div>
+              <span>Ruimte (m²)</span>
+              <input type="text" name="space">
+            </div>
+            <div>
+              <span>Verdiepingen</span>
+              <select name="layers">
+                <option value="">Maak een keuze</option>
+                <option value="1">1 verdieping</option>
+                <option value="2">2 verdiepingen</option>
+                <option value="3">3 verdiepingen</option>
+                <option value="4">4 verdiepingen</option>
+                <option value="5+">5+ verdiepingen</option>
+              </select>
+            </div>
+            <div>
+              <span>Parkeergelegenheid</span>
+              <select name="parking">
+                <option value="">Maak een keuze</option>
+                <option value="Ja">Ja</option>
+                <option value="Nee">Nee</option>
+                <option value="Beperkt">Beperkt</option>
+                <option value="Betaald">Betaald</option>
+              </select>
+            </div>
+          </div> 
+          <div id="bot">
+            <p>Beschrijving*</p>
+            <textarea name="description" cols="100" rows="10" required></textarea>
+          </div>
+          <input type="submit" id="create-button" value="Plaats nieuwe advertentie" name="submit">
+        </div>
+      </form>
     </div>
   </body>
 
   <!-- JQuery and Ajax scripts -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="js/index.js"></script>
+  <script src="js/script.js"></script>
 </html>
