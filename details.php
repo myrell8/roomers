@@ -31,26 +31,27 @@ $userrow = mysqli_fetch_assoc($userresource);
 if ($row['picture1'] == NULL) 
   {
     $picture1 = "img/noimg.jpg";
+    $count = 0;
   }
   else
   {
-    if (isset($row['picture1'])) {
+    if ($row['picture1'] != NULL) {
       $picture1 = $row['picture1'];
       $count = 1;
     }
-    if (isset($row['picture2'])) {
+    if ($row['picture2'] != NULL) {
       $picture2 = $row['picture2'];
       $count = 2;
     }
-    if (isset($row['picture3'])) {
+    if ($row['picture3'] != NULL) {
       $picture3 = $row['picture3'];
       $count = 3;
     }
-    if (isset($row['picture4'])) {
+    if ($row['picture4'] != NULL) {
       $picture4 = $row['picture4'];
       $count = 4;
     }
-    if (isset($row['picture5'])) {
+    if ($row['picture5'] != NULL) {
       $picture5 = $row['picture5'];
       $count = 5;
     }
@@ -88,8 +89,8 @@ if ($row['picture1'] == NULL)
       <!-- Indicators -->
       <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <?php for ($i=1; $i < $count; $i++) { ?>
-          <li data-target="#myCarousel" data-slide-to="1"></li>      
+        <?php for ($i=2; $i <= $count; $i++) { ?>
+          <li data-target="#myCarousel" data-slide-to=<?php $i ?>></li>      
         <?php } ?>
       </ol>
 
@@ -99,22 +100,35 @@ if ($row['picture1'] == NULL)
           <img src=<?php echo $picture1 ?> id="detail-img">
         </div>
 
-        <div class="item">
-          <img src=<?php echo $picture2 ?> id="detail-img">
-        </div>
-      
-        <div class="item">
-          <img src=<?php echo $picture3 ?> id="detail-img">
-        </div>
+        <?php for ($i=1; $i <= $count; $i++) { ?>
+          <?php 
+            if ($i == 2){ ?>
+              <div class="item">
+                <img src=<?php echo $picture2 ?> id="detail-img">
+              </div>
+          <?php } ?>
 
-        <div class="item">
-          <img src=<?php echo $picture4 ?> id="detail-img">
-        </div>
+          <?php 
+            if ($i == 3){ ?>
+              <div class="item">
+                <img src=<?php echo $picture3 ?> id="detail-img">
+              </div>
+          <?php } ?>
 
-        <div class="item">
-          <img src=<?php echo $picture5 ?> id="detail-img">
-        </div>
-      </div>
+          <?php 
+            if ($i == 4){ ?>
+              <div class="item">
+                <img src=<?php echo $picture4 ?> id="detail-img">
+              </div>
+          <?php } ?>
+
+          <?php 
+            if ($i == 5){ ?>
+              <div class="item">
+                <img src=<?php echo $picture5 ?> id="detail-img">
+              </div>
+          <?php }} ?>
+      </div>      
 
       <!-- Left and right controls -->
       <a class="left carousel-control" href="#myCarousel" data-slide="prev">
@@ -193,7 +207,7 @@ if ($row['picture1'] == NULL)
         </div>
         <div id="details-description">
           <p class="detail-title" id="desc-title">Beschrijving</p>
-          <p id="description"><?php echo $row['description']; ?></p>
+          <p id="description"><?php echo $row['description'] ?></p>
         </div>
       </div>
   </body>
