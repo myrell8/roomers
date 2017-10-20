@@ -98,7 +98,7 @@ $count = 0;
       <form id="create-form" action="create.php" method="POST" enctype="multipart/form-data">
         <div id="form-left">
           <div id="filediv"><input name="file[]" type="file" id="file" /></div>
-          <input type="button" id="add_more" class="upload" value="Add More Files"/>
+          <input type="button" id="add_more" class="upload" value="Meer foto's toevoegen"/>
         </div>
         <div id="form-right">
           <div id="top">
@@ -127,7 +127,7 @@ $count = 0;
             <div>
               <span>Type gebouw</span>
                 <select name="type">
-                <option value="">Maak een keuze</option>
+                <option value="Niet bekend">Niet bekend</option>
                 <option value="School">School</option>
                 <option value="Kantoor">Kantoor</option>
                 <option value="Winkel">Winkel</option>7
@@ -139,7 +139,7 @@ $count = 0;
             <div>
               <span>Tijd beschikbaar</span>
               <select name="time">
-                <option value="">Maak een keuze</option>
+                <option value="Niet bekend">Niet bekend</option>
                 <option value="< 1 maand">< 1 maand</option>
                 <option value="1 tot 3 maanden">1 tot 3 maanden</option>
                 <option value="3 tot 5 maanden">3 tot 5 maanden</option>
@@ -149,16 +149,16 @@ $count = 0;
             </div>
             <div>
               <span>Bouwjaar</span>
-              <input type="text" name="year">
+              <input type="number" name="year">
             </div>
             <div>
               <span>Ruimte (m²)</span>
-              <input type="text" name="space">
+              <input type="number" name="space">
             </div>
             <div>
               <span>Verdiepingen</span>
               <select name="layers">
-                <option value="">Maak een keuze</option>
+                <option value="Niet bekend">Niet bekend</option>
                 <option value="1">1 verdieping</option>
                 <option value="2">2 verdiepingen</option>
                 <option value="3">3 verdiepingen</option>
@@ -169,7 +169,7 @@ $count = 0;
             <div>
               <span>Parkeergelegenheid</span>
               <select name="parking">
-                <option value="">Maak een keuze</option>
+                <option value="Niet bekend">Niet bekend</option>
                 <option value="Ja">Ja</option>
                 <option value="Nee">Nee</option>
                 <option value="Beperkt">Beperkt</option>

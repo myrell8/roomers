@@ -21,6 +21,13 @@ if (isset($_POST['submit'])) {
 	$desc = mysql_real_escape_string($_POST['description']);
 	$numberOfFiles = count(array_filter($_FILES['file']['name']));
 	$j = 0;     // Variable for indexing uploaded image.
+
+	if ($year == "") {
+		$year = "Niet bekend";
+	}
+	if ($space == "") {
+		$space = "Niet bekend";
+	}
 	
 		for ($i = 0; $i < count($_FILES['file']['name']); $i++) {
 		$target_path = "img/";     // Declaring Path for uploaded images.

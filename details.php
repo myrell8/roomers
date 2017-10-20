@@ -28,6 +28,13 @@ $userquery = "
 $userresource = mysqli_query($connect, $userquery);
 $userrow = mysqli_fetch_assoc($userresource);
 
+if ($row['space'] == "Niet bekend") {
+  $space = $row['space'];
+}
+else{
+  $space = $row['space'] . " m²"; 
+}
+
 if ($row['picture1'] == NULL) 
   {
     $picture1 = "img/noimg.jpg";
@@ -85,7 +92,7 @@ if ($row['picture1'] == NULL)
     <div id="mainpage">
       <div id="content-container">
     <div id="detail-img-container">
-    <div id="myCarousel" class="carousel" data-ride="carousel">
+    <div id="myCarousel" class="carousel" data-ride="carousel" data-interval="false">
       <!-- Indicators -->
       <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -141,14 +148,6 @@ if ($row['picture1'] == NULL)
       </a>
     </div>
     </div>
-
-        <!-- <div id="detail-img-container">
-          <img src=<?php echo $picture1 ?> id="detail-img">
-          <img src=<?php echo $picture2 ?> id="detail-img">
-          <img src=<?php echo $picture3 ?> id="detail-img">
-          <img src=<?php echo $picture4 ?> id="detail-img">
-          <img src=<?php echo $picture5 ?> id="detail-img">
-        </div> -->
         <div id="details-div">
           <div class="details-element">
             <p class="detail-title">Naam</p>
@@ -180,7 +179,7 @@ if ($row['picture1'] == NULL)
           </div>
           <div class="details-element">
             <p class="detail-title">Ruimte beschikbaar</p>
-            <p><?php echo $row['space'] . " m²"; ?></p>
+            <p><?php echo $space; ?></p>
           </div>
           <div class="details-element">
             <p class="detail-title">Verdiepingen</p>
@@ -194,12 +193,6 @@ if ($row['picture1'] == NULL)
             <p class="detail-title">Naam eigenaar</p>
             <p><?php echo $userrow['firstName'] . " " . $userrow['lastName']; ?></p>
           </div>
-          <!--
-          <div class="details-element">
-            <p class="detail-title">E-mail</p>
-            <p><?php echo $userrow['email']; ?></p>
-          </div>
-          -->
           <div class="details-element">
             <p class="detail-title">Telefoon</p>
             <p><?php echo $userrow['phone']; ?></p>

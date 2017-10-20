@@ -35,7 +35,7 @@ function Validate() {
   if(password.value == "")
   {
     password.style.border = "1px solid #ff5252";
-    password_error.textContent = "Password is verplicht";
+    password_error.textContent = "Wachtwoord is verplicht";
     password.focus();
     return false;
   }

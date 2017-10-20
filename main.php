@@ -130,6 +130,13 @@ $count = 0;
       </div>
         <div class="search-result">
           <?php foreach ($BuildingArray as $item) { 
+            if ($item['space'] == "Niet bekend") {
+              $space = $item['space'];
+            }
+            else{
+              $space = $item['space'] . " m²"; 
+            }
+
             $count++;
             if ($even == "0") {
               $container = "item-container";
@@ -168,7 +175,7 @@ $count = 0;
                   <p><?php echo $item['street'] . " " . $item['strnumber'] ?></p>
                   <p><?php echo $item['areacode'] ?></p>
                   <p><?php echo $item['renttime'] ?></p>
-                  <p><?php echo $item['space'] . "m²"?></p>
+                  <p><?php echo $space; ?></p>
                   <p><?php echo $item['firstName'] . " " . $item['lastName'] ?></p>
                 </div>
                 <a class="info-button" href="details.php?id=<?php echo $item['buildingID']; ?>">Meer info</a>

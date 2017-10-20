@@ -368,14 +368,13 @@ text-decoration:none !important;
 
 .sidenav .closebtn {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 00px;
+  right: 0px;
   font-size: 35px;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 0px;
-  padding-bottom: 0px;
-  border-radius: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 .closebtn:hover {
   background-color: #1C1F1F;
@@ -755,7 +754,7 @@ text-decoration:none !important;
   padding: 10px;
   box-shadow: 2px 2px 15px rgba(0,0,0,.75);
   margin-top: 20px;
-  width: 50%;
+  width: 60%;
 }
 .upload:hover{
   cursor:pointer;
