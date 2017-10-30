@@ -1,10 +1,11 @@
 var abc = 0;   
 var max = 0;   // Declaring and defining global increment variable.
+var count = 1;
 $(document).ready(function() {
 
 //  To add new input file field dynamically, on click of "Add More Files" button below function will be executed.
 $('#add_more').click(function() {
-if(max<4)
+if(max<4 && count==abc)
 { 
 $(this).before($("<div/>", {
 id: 'filediv'
@@ -14,6 +15,7 @@ type: 'file',
 id: 'file'
 }), ));
 max++;
+count++;
 }
 });
 // Following function will executes on change event of file input to select different file.

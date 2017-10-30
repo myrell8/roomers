@@ -44,13 +44,53 @@ $id =  $_GET['id'];
     ?>
     <div id="mainpage">
       <div id="content-container">
-       <form id="create-form" action="create.php" method="POST" enctype="multipart/form-data">
+       <form id="create-form" action="inc/editadd.php" method="POST" enctype="multipart/form-data">
         <div id="form-left">
-          <div id="filediv"><input name="file[]" type="file" id="file" /></div>
-          <input type="button" id="add_more" class="upload" value="Add More Files"/>
+
+          <?php if (isset($row['picture1']) && $row['picture1'] != "") { ?>
+            <div id="filediv">
+              <div id="abcd1" class="abcd">
+                <img id="previewimg1" src=<?php echo $row['picture1']; ?>>
+              </div>
+            </div>
+          <?php } ?>
+
+          <?php if (isset($row['picture2']) && $row['picture2'] != "") { ?>
+            <div id="filediv">
+              <div id="abcd2" class="abcd">
+                <img id="previewimg2" src=<?php echo $row['picture2']; ?>>
+              </div>
+            </div>
+          <?php } ?>
+
+          <?php if (isset($row['picture3']) && $row['picture3'] != "") { ?>
+            <div id="filediv">
+              <div id="abcd3" class="abcd">
+                <img id="previewimg3" src=<?php echo $row['picture3']; ?>>
+              </div>
+            </div>
+          <?php } ?>
+
+          <?php if (isset($row['picture4']) && $row['picture4'] != "") { ?>
+            <div id="filediv">
+              <div id="abcd4" class="abcd">
+                <img id="previewimg4" src=<?php echo $row['picture4']; ?>>
+              </div>
+            </div>
+          <?php } ?>
+
+          <?php if (isset($row['picture5']) && $row['picture5'] != "") { ?>
+            <div id="filediv">
+              <div id="abcd1" class="abcd">
+                <img id="previewimg5" src=<?php echo $row['picture5']; ?>>
+              </div>
+            </div>
+          <?php } ?>
+          
         </div>
         <div id="form-right">
           <div id="top">
+            <input type="hidden" name="buildingID" value="<?php echo $id ?>">
             <div>
               <span>Naam advertentie*</span>
               <input type="text" name="addname" required value=<?php echo $row['name']; ?>>
@@ -76,11 +116,11 @@ $id =  $_GET['id'];
             <div>
               <span>Type gebouw</span>
                 <select name="type">
-                <option value=<?php echo $row['city']; ?>><?php echo $row['mainfunction']; ?></option>
+                <option class="selected" value="<?php echo $row['mainfunction']; ?>"><?php echo $row['mainfunction']; ?></option>
                 <option value="Niet bekend">Niet bekend</option>
                 <option value="School">School</option>
                 <option value="Kantoor">Kantoor</option>
-                <option value="Winkel">Winkel</option>7
+                <option value="Winkel">Winkel</option>
                 <option value="Horeca">Horeca</option>
                 <option value="Industrie">Industrie</option>
                 <option value="Woonruimte">Woonruimte</option>
@@ -89,7 +129,7 @@ $id =  $_GET['id'];
             <div>
               <span>Tijd beschikbaar</span>
               <select name="time">
-                <option value=<?php echo $row['renttime']; ?>><?php echo $row['renttime']; ?></option>
+                <option class="selected" value="<?php echo $row['renttime']; ?>"><?php echo $row['renttime']; ?></option>
                 <option value="Niet bekend">Niet bekend</option>
                 <option value="< 1 maand">< 1 maand</option>
                 <option value="1 tot 3 maanden">1 tot 3 maanden</option>
@@ -100,28 +140,30 @@ $id =  $_GET['id'];
             </div>
             <div>
               <span>Bouwjaar</span>
-              <input type="text" name="year" value=<?php echo $row['year']; ?>>
+              <input type="text" name="year" value="<?php echo $row['year']; ?>">
             </div>
             <div>
               <span>Ruimte (m²)</span>
-              <input type="text" name="space" value=<?php echo $row['space']; ?>>
+              <input type="text" name="space" value="<?php echo $row['space']; ?>">
             </div>
+            <?php 
+            ?>
             <div>
               <span>Verdiepingen</span>
               <select name="layers">
-                <option value=<?php echo $row['layers']; ?>><?php echo $row['layers']; ?></option>
+                <option class="selected" value="<?php echo $row['layers']; ?>"><?php echo $row['layers']; ?></option>
                 <option value="Niet bekend">Niet bekend</option>
-                <option value="1">1 verdieping</option>
-                <option value="2">2 verdiepingen</option>
-                <option value="3">3 verdiepingen</option>
-                <option value="4">4 verdiepingen</option>
-                <option value="5+">5+ verdiepingen</option>
+                <option value="1 verdieping">1 verdieping</option>
+                <option value="2 verdiepingen">2 verdiepingen</option>
+                <option value="3 verdiepingen">3 verdiepingen</option>
+                <option value="4 verdiepingen">4 verdiepingen</option>
+                <option value="5+ verdiepingen">5+ verdiepingen</option>
               </select>
             </div>
             <div>
               <span>Parkeergelegenheid</span>
               <select name="parking">
-                <option value=<?php echo $row['parking']; ?>><?php echo $row['parking']; ?></option>
+                <option class="selected" value="<?php echo $row['parking']; ?>"><?php echo $row['parking']; ?></option>
                 <option value="Niet bekend">Niet bekend</option>
                 <option value="Ja">Ja</option>
                 <option value="Nee">Nee</option>
@@ -141,5 +183,7 @@ $id =  $_GET['id'];
   </body>
 
   <!-- JQuery and Ajax scripts -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="js/index.js"></script>
+  <script src="js/script.js"></script>
 </html>

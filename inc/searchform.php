@@ -43,11 +43,11 @@
   <span>Verdiepingen:</span>
   <select name="verdiepingen">
     <option value="">Maak een keuze</option>
-    <option value="1">1 verdieping</option>
-    <option value="2">2 verdiepingen</option>
-    <option value="3">3 verdiepingen</option>
-    <option value="4">4 verdiepingen</option>
-    <option value="5+">5+ verdiepingen</option>
+    <option value="1 verdieping">1 verdieping</option>
+    <option value="2 verdiepingen">2 verdiepingen</option>
+    <option value="3 verdiepingen">3 verdiepingen</option>
+    <option value="4 verdiepingen">4 verdiepingen</option>
+    <option value="5+ verdiepingen">5+ verdiepingen</option>
   </select>
   </div>
   <div>

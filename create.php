@@ -26,7 +26,7 @@ if (isset($_POST['submit'])) {
 		$year = "Niet bekend";
 	}
 	if ($space == "") {
-		$space = "Niet bekend";
+		$space = 0;
 	}
 	
 		for ($i = 0; $i < count($_FILES['file']['name']); $i++) {

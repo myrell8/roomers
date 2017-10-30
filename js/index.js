@@ -4,6 +4,15 @@ $( "#search-open" ).click(function() {
     // Animation complete.
   });
 });
+$(".delete").click(function(){
+  var r = confirm("Weet je zeker dat je deze advertentie wilt verwijderen?");
+      if (r == true) {
+        r = true;
+    } else {
+       r = false;
+    }
+    return r;
+});
 
 // getting all text objects from login
 var email = document.forms["vform"]["email"];

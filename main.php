@@ -19,7 +19,7 @@ $orderBy = " ORDER BY buildingID ASC";
 if (isset($_GET['ruimte']) && $_GET['ruimte'] != "") {
   $searchRuimte = $_GET['ruimte'];
   if ($searchRuimte == 1) {
-    $minRuimte = 0;
+    $minRuimte = 1;
     $maxRuimte = 50;
   }
   elseif ($searchRuimte == 2) {
@@ -130,8 +130,8 @@ $count = 0;
       </div>
         <div class="search-result">
           <?php foreach ($BuildingArray as $item) { 
-            if ($item['space'] == "Niet bekend") {
-              $space = $item['space'];
+            if ($item['space'] == 0) {
+              $space = "Niet bekend";
             }
             else{
               $space = $item['space'] . " m²"; 
@@ -178,7 +178,9 @@ $count = 0;
                   <p><?php echo $space; ?></p>
                   <p><?php echo $item['firstName'] . " " . $item['lastName'] ?></p>
                 </div>
-                <a class="info-button" href="details.php?id=<?php echo $item['buildingID']; ?>">Meer info</a>
+                <div class="result-div-buttons">
+                  <a class="info-button" href="details.php?id=<?php echo $item['buildingID']; ?>">Meer info</a>
+                </div>
               </div>
             </div>
           <?php } ?>

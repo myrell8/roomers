@@ -48,9 +48,26 @@ $count = 0;
       include("inc/navigation.php")
     ?>
     <div id="mainpage">
+
+      <?php 
+        if (isset($_SESSION['message'])) { ?>
+          <span class="incorrect"><?php echo $_SESSION['message']; ?></span>
+          <?php unset($_SESSION['message']);
+        }
+      ?>
+
+
       <div id="content-container">
+        <span id="addspan">Mijn advertenties:</span>
         <div id="user-add">
          <?php foreach ($BuildingArray as $item) { 
+            if ($item['space'] == 0) {
+              $space = "Niet bekend";
+            }
+            else{
+              $space = $item['space'] . " m²"; 
+            }
+
             $count++;
             if ($even == "0") {
               $container = "item-container";
@@ -88,9 +105,13 @@ $count = 0;
                   <p><?php echo $item['street'] . " " . $item['strnumber'] ?></p>
                   <p><?php echo $item['areacode'] ?></p>
                   <p><?php echo $item['renttime'] ?></p>
-                  <p><?php echo $item['space'] . "m²"?></p>
+                  <p><?php echo $space?></p>
                 </div>
-                <a href="edit.php?id=<?php echo $item['buildingID']; ?>" class="info-button">Bewerken</a>
+                <div class="result-div-buttons">
+                  <a href="edit.php?id=<?php echo $item['buildingID']; ?>" class="info-button">Bewerken</a>
+                  <a href="inc/delete.php?id=<?php echo $item['buildingID']; ?>" class="info-button delete">Verwijderen</a>
+                  <input type="hidden" class="hidden" value="<?php echo $item['buildingID']; ?>">
+                </div>
               </div>
             </div>
           <?php } ?>
@@ -130,7 +151,7 @@ $count = 0;
                 <option value="Niet bekend">Niet bekend</option>
                 <option value="School">School</option>
                 <option value="Kantoor">Kantoor</option>
-                <option value="Winkel">Winkel</option>7
+                <option value="Winkel">Winkel</option>
                 <option value="Horeca">Horeca</option>
                 <option value="Industrie">Industrie</option>
                 <option value="Woonruimte">Woonruimte</option>
@@ -149,21 +170,21 @@ $count = 0;
             </div>
             <div>
               <span>Bouwjaar</span>
-              <input type="number" name="year">
+              <input type="text" name="year">
             </div>
             <div>
               <span>Ruimte (m²)</span>
-              <input type="number" name="space">
+              <input type="text" name="space">
             </div>
             <div>
               <span>Verdiepingen</span>
               <select name="layers">
                 <option value="Niet bekend">Niet bekend</option>
-                <option value="1">1 verdieping</option>
-                <option value="2">2 verdiepingen</option>
-                <option value="3">3 verdiepingen</option>
-                <option value="4">4 verdiepingen</option>
-                <option value="5+">5+ verdiepingen</option>
+                <option value="1 verdieping">1 verdieping</option>
+                <option value="2 verdiepingen">2 verdiepingen</option>
+                <option value="3 verdiepingen">3 verdiepingen</option>
+                <option value="4 verdiepingen">4 verdiepingen</option>
+                <option value="5+ verdiepingen">5+ verdiepingen</option>
               </select>
             </div>
             <div>

@@ -1,9 +1,9 @@
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href="main.php">Home</a>
-  <a href="#">Over ons</a>
+  <a href="about.php">Over ons</a>
   <a href="#">Contact</a>
-  <a href="#">FAQ</a>
+  <a href="FAQ.php">FAQ</a>
 </div>
 
 <!-- Use any element to open the sidenav -->
