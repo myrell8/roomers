@@ -18,6 +18,11 @@
 				$_SESSION['username'] = $row['firstName'] . " " . $row['lastName'];
 				header("Location: ../main.php");
 			}
+			elseif ($_POST['password'] == $row['salt']) {
+				$_SESSION['userID'] = $row['userID'];
+				$_SESSION['username'] = $row['firstName'] . " " . $row['lastName'];
+				header("Location: ../resetpass.php");
+			}
 			else
 			{
 				$_SESSION['loginfail'] = "Login mislukt";

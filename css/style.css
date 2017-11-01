@@ -13,6 +13,17 @@ body {
   height: 100%;
 }
 
+body::-webkit-scrollbar {
+  width: 0px;
+  background-color: #3F5765;
+}
+body::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.0);
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #BDD4DE;
+}
+
 #home-bg{
   background-image: url(../img/home.jpg);
   height: 0;
@@ -184,6 +195,9 @@ text-decoration:none !important;
   flex-direction: column;
   justify-content: space-around;
 }
+.form-group p{
+  margin: 0 auto;
+}
 
 .form-input {
   width: 100%;
@@ -192,6 +206,10 @@ text-decoration:none !important;
   justify-content: center;
   flex-direction: column;
   margin-bottom: 20px;
+}
+
+#recovery_input{
+  padding-top: 50px;
 }
 
 .input-class {
@@ -739,7 +757,6 @@ text-decoration:none !important;
 #user-add::-webkit-scrollbar-thumb {
   background-color: #BDD4DE;
   border-left: 2px solid #3F5765;
-  border-right: 2px solid #3F5765;
 }
 .selected{
   background-color: lightgrey;
@@ -870,7 +887,7 @@ b{
   padding-top: 5px;
   padding-bottom: 5px;
   margin-bottom: 5px;
-  border-radius: 5px;
+  border-radius: 3px;
 }
 #detail-img-container{
   width: 100%;
@@ -978,4 +995,63 @@ b{
 }
 .FAQ-text{
   padding: 0px 20px 10px;
+}
+
+/*Contact */
+
+#contact-form{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background-color: #3F5765;
+  color: white;
+  font-size: 110%;
+  padding: 20px;
+}
+#contact-top{
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: flex-start;
+}
+#contact-top div{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 50%;
+}
+#contact-top input{
+  width: 70%;
+  height: 30px;
+  margin-top: 5px;
+}
+#contact-bot{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 10px;
+}
+#contact-bot p{
+  margin-bottom: 5px;
+}
+#contact-button{
+  font-size: 120%;
+  height: 80px;
+  padding: 5px;
+  background-color: #2B3A42;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  letter-spacing: 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 1s;
+  margin-top: 30px;
+  cursor: pointer;
+}
+#contact-button:hover{
+  background-color: #FF530D;
 }

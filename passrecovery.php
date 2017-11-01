@@ -25,32 +25,17 @@
   <body id="home-bg">
     <div class="home">
       <div class="home-content">
-        <form id="login-form" action="inc/logincheck.php" method="POST" name="vform">
-          <span class="login-span">Login</span>
+        <form id="login-form" action="mail/passmail.php" method="POST" name="vform">
+          <span class="login-span">Wachtwoord vergeten</span>
           <div class="form-group">
-
-            <?php 
-              if (isset($_SESSION['message'])) { ?>
-              <span class="correct"><?php echo $_SESSION['message']; ?></span>
-            <?php unset($_SESSION['message']); }?>
-            <?php
-              if (isset($_SESSION['loginfail'])) { ?>
-              <span class="incorrect"><?php echo $_SESSION['loginfail']; ?></span>
-            <?php unset($_SESSION['loginfail']); }?>
-
-            <div class="form-input">
+            <p>Vul hier uw emailadres in</p>
+            <div class="form-input" id="recovery_input">
                 <span class="form-span">Emailadres</span>
-                <input class="input-class" type="email" name="email">
+                <input class="input-class" type="email" name="pf_email">
                 <span id="email_error" class="val_error"></span>
             </div>
-            <div class="form-input">
-                <span class="form-span">Password</span>
-                <input class="input-class pass" type="password" name="password">
-                <span id="password_error" class="val_error"></span>
-            </div>
           </div>
-            <a href="passrecovery.php" class="forget-pw">Wachtwoord vergeten?</a>
-            <input class="login-button" type="submit" name="loginbutton" value="Login">
+            <input class="login-button" type="submit" name="loginbutton" value="Stuur mail">
             <a href="index.php" class="login-button" id="login-back">Terug</a>
         </form>
       </div>

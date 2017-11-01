@@ -39,7 +39,6 @@ $count = 0;
     <title>Roomers</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/font-awesome/css/font-awesome.min.css">
   </head>
 
   <body>
@@ -55,7 +54,6 @@ $count = 0;
           <?php unset($_SESSION['message']);
         }
       ?>
-
 
       <div id="content-container">
         <span id="addspan">Mijn advertenties:</span>
@@ -199,7 +197,7 @@ $count = 0;
             </div>
           </div> 
           <div id="bot">
-            <p>Beschrijving*</p>
+            <p>Omschrijving*</p>
             <textarea name="description" cols="100" rows="10" required></textarea>
           </div>
           <input type="submit" id="create-button" value="Plaats nieuwe advertentie" name="submit">

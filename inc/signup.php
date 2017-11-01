@@ -11,20 +11,33 @@ $lastname = $_POST['lastname'];
 $phone = $_POST['phone'];
 $salt = uniqid(mt_rand(), true);
 
-if($password == $reEnterPassword)
-{
-	$password = md5($password) . $salt;
+$query = "SELECT * FROM user WHERE email = '$email' LIMIT 1";
+$result = mysqli_query($connect, $query);
 
-	$sql = "INSERT INTO user (userID,email,password,salt,firstName,lastName,phone) VALUES('','$email','$password','$salt','$firstname','$lastname','$phone')";
-
-	$_SESSION['message'] = "Registratie succesvol";
-	mysqli_query($connect, $sql);
-	header("Location: ../login.php");
+if (mysqli_num_rows($result) == 1){
+	$_SESSION['message'] = "Email is al in gebruik";
+	header("Location: ../register.php");
 }
 else
 {
-	$_SESSION['message'] = "Registratie mislukt";
-	header("Location: ../register.php");
+
+	if($password == $reEnterPassword)
+	{
+		$password = md5($password) . $salt;
+
+		$sql = "INSERT INTO user (userID,email,password,firstName,lastName,phone,salt) VALUES('','$email','$password','$firstname','$lastname','$phone','$salt')";
+
+		$_SESSION['message'] = "Registratie succesvol";
+		mysqli_query($connect, $sql);
+		header("Location: ../login.php");
+	}
+	else
+	{
+		$_SESSION['message'] = "Wachtwoorden komen niet overeen";
+		header("Location: ../register.php");
+	}
 }
+
+
 ?>
 

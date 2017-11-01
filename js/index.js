@@ -14,6 +14,8 @@ $(".delete").click(function(){
     return r;
 });
 
+/*
+
 // getting all text objects from login
 var email = document.forms["vform"]["email"];
 var password = document.forms["vform"]["password"];
@@ -30,6 +32,8 @@ var password_error = document.getElementById("password_error");
 // setting all event listeners
 email.addEventListener("blur", emailVerify, true);
 password.addEventListener("blur", passwordVerify, true);
+
+*/
 
 // validate function
 function Validate() {

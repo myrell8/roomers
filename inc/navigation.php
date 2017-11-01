@@ -2,7 +2,7 @@
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href="main.php">Home</a>
   <a href="about.php">Over ons</a>
-  <a href="#">Contact</a>
+  <a href="contact.php">Contact</a>
   <a href="FAQ.php">FAQ</a>
 </div>
 
