@@ -16,6 +16,7 @@
 			if ($password == $row['password']) {
 				$_SESSION['userID'] = $row['userID'];
 				$_SESSION['username'] = $row['firstName'] . " " . $row['lastName'];
+				$_SESSION['email'] = $email;
 				header("Location: ../main.php");
 			}
 			elseif ($_POST['password'] == $row['salt']) {

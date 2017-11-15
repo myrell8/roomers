@@ -1,9 +1,19 @@
 <?php
   session_start();
+  require("inc/connect.php");
+  $connect = connectToDB();
 
   if (!isset($_SESSION['userID'])) {
     header("Location: index.php");
   }
+
+  $sql = "
+  SELECT name, user_ID
+  FROM building
+  WHERE buildingID = " . $_GET['id'] . "";
+
+  $resource = mysqli_query($connect, $sql);
+  $row = mysqli_fetch_assoc($resource);
 
 ?>
 
@@ -30,9 +40,9 @@
     <div id="mainpage">
       <div id="content-container">
         <img src="img/logo.png" height="200" width="200">
-        <h1 id="info-title">Contact</h1>
+        <h1 id="info-title">Reactie op "<?php echo $row['name'] ?>"</h1>
         <div class="infocontainer">
-          <form id="contact-form" action="mail/supportmail.php" method="POST" enctype="multipart/form-data">
+          <form id="contact-form" action="mail/reactionmail.php" method="POST" enctype="multipart/form-data">
             <div id="contact-top">
               <div>
                 <span>Naam: </span>
@@ -46,15 +56,12 @@
             <div id="contact-bot">
               <p>Bericht:</p>
               <textarea name="cf_message" rows="10" required></textarea>
+              <input type="hidden" name="cf_buildingID" value="<?php echo $_GET['id'] ?>">
               <input type="submit" name="submit" id="contact-button" value="Verzend">
             </div>
           </form>
         </div>
       </div>
-    </div>
-
-    <div id="footer">
-      <a href="index.php">Terug naar de hoofdpagina</a>
     </div>
   </body>
 

@@ -15,6 +15,7 @@ $buildingquery = "
   ";
 
 $buildingresource = mysqli_query($connect, $buildingquery);
+$numrows = mysqli_num_rows($buildingresource);
 
 $BuildingArray = array();
   while($result = mysqli_fetch_assoc($buildingresource))
@@ -47,17 +48,20 @@ $count = 0;
       include("inc/navigation.php")
     ?>
     <div id="mainpage">
-
+      <div id="content-container">
       <?php 
         if (isset($_SESSION['message'])) { ?>
           <span class="incorrect"><?php echo $_SESSION['message']; ?></span>
           <?php unset($_SESSION['message']);
         }
       ?>
-
-      <div id="content-container">
         <span id="addspan">Mijn advertenties:</span>
         <div id="user-add">
+        
+        <?php if ($numrows == 0) { ?>
+          <div id="no-add">Geen advertenties om weer te geven</div>
+        <?php } ?>
+        
          <?php foreach ($BuildingArray as $item) { 
             if ($item['space'] == 0) {
               $space = "Niet bekend";

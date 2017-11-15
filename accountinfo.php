@@ -45,6 +45,7 @@
     ?>
     <div id="mainpage">
       <div id="content-container">
+        <img src="img/logo.png" height="200" width="200">
         <form class="register-form" id="change-form" action="inc/changeinfo.php" method="POST" name="rform">
           <span class="login-span">Verifieer en verander gegevens</span>
           <?php 

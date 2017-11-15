@@ -84,9 +84,9 @@ if ($row['picture1'] == NULL)
   </head>
 
   <body>
-    <?php  
+    <?php
       include("inc/header.php");
-      include("inc/navigation.php")
+      include("inc/navigation.php");
     ?>
     <div id="mainpage">
       <div id="content-container">
@@ -201,6 +201,7 @@ if ($row['picture1'] == NULL)
           <p class="detail-title" id="desc-title">Omschrijving</p>
           <p id="description"><?php echo $row['description'] ?></p>
         </div>
+        <a href="react.php?id=<?php echo $_GET['id']; ?>" class="reactbutton">Stuur een reactie</a>
       </div>
   </body>
 

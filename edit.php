@@ -92,25 +92,25 @@ $id =  $_GET['id'];
             <input type="hidden" name="buildingID" value="<?php echo $id ?>">
             <div>
               <span>Naam advertentie*</span>
-              <input type="text" name="addname" required value=<?php echo $row['name']; ?>>
+              <input type="text" name="addname" required value="<?php echo $row['name']; ?>">
             </div>
           </div>
           <div id="mid">
             <div>
               <span>Straatnaam*</span> 
-              <input type="text" name="street" required value=<?php echo $row['street']; ?>>
+              <input type="text" name="street" required value="<?php echo $row['street']; ?>"">
             </div>
             <div>
               <span>Huisnummer*</span>
-              <input type="text" name="number" required value=<?php echo $row['strnumber']; ?>>
+              <input type="text" name="number" required value="<?php echo $row['strnumber']; ?>">
             </div>
             <div>
               <span>Postcode*</span>
-              <input type="text" name="areacode" required value=<?php echo $row['areacode']; ?>>
+              <input type="text" name="areacode" required value="<?php echo $row['areacode']; ?>">
             </div>
             <div>
               <span>Stad*</span>
-              <input type="text" name="city" required value=<?php echo $row['city']; ?>>
+              <input type="text" name="city" required value="<?php echo $row['city']; ?>">
             </div>
             <div>
               <span>Type gebouw</span>

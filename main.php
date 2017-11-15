@@ -98,6 +98,9 @@ $BuildingArray = array();
 
 $even = "1";
 $count = 0;
+$pagecount = mysqli_num_rows($buildingresource);
+$pagecount = $pagecount/10;
+$pagecount = ceil($pagecount);
 ?>
 
 <!DOCTYPE html>
@@ -162,6 +165,7 @@ $count = 0;
               <img src=<?php echo $picture ?> class="result-img">
               <div class=<?php echo $resultinfo ?>>
                 <div class="result-title-div">
+                  <?php echo $pagecount ?>
                   <p>Naam</p>
                   <p>Adres</p>
                   <p>Postcode</p>
@@ -182,6 +186,11 @@ $count = 0;
                 </div>
               </div>
             </div>
+          <?php } ?>
+        </div>
+          <div id="pagination-div">
+          <?php for ($x=1; $x <= $pagecount; $x++) { ?>
+            <a href="" class="pagination"><?php echo $x ?></a>
           <?php } ?>
         </div>
       </div> 
