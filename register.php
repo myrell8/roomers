@@ -56,7 +56,7 @@
             </div>
             <div class="form-input">
                 <span class="form-span">Telefoonnummer</span>
-                <input class="input-class" type="tel" name="phone" id="phone-input" required=>
+                <input class="input-class" type="tel" name="phone" id="phone-input">
             </div>
           </div>
             <input class="login-button" type="submit" name="loginbutton" value="Registreer">

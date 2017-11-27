@@ -34,34 +34,20 @@
         <div class="infocontainer">
           <p class="abouttitle">Roomers</p>
           <p class="abouttext">
-              !Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              !Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Roomers is een webapplicatie die functioneert als een platform tussen pandeigenaren en particulieren in Helmond die een ruimte zoeken om te huren.<br>
+            Het doel van Roomers is om leegstand in het centrum tegen te gaan door een win-win situatie te creëren voor zowel de pandeigenaren als de huurders. Particulieren die tijdelijk een ruimte nodig hebben om bijvoorbeeld de restanten van hun voorraad te verkopen na een faillissement kunnen met Roomers gemakkelijk een ruimte vinden voor een pop-up store. De eigenaar zit op zijn beurt niet met een leeg pand dat niet gebruikt wordt en verdient geld aan het verhuur. De gemeente heeft hier ook baat bij omdat er op deze manier minder leegstand zal zijn in het centrum en daardoor wordt het straatbeeld toch een stuk mooier. We hopen dat we met Roomers alle partijen een hoop moeite kunnen besparen met betrekking tot contracten, communicatie en betalingen.
           </p>
 
           <p class="abouttitle">Het Beginstation</p>
-          <p class="abouttext">
-              !Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              !Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          <p class="abouttext">   
+            Het Beginstation is een concept dat zich richt op werkgelegenheid, start-ups en innovaties voor een circulaire economie. Een innovatiecentrum gelegen aan het Stationsplein in Helmond welke zorgt voor een inspirerende en verbindende ontmoetingsplaats tussen diverse partijen. Wij verbinden kennis en ervaring met elkaar, faciliteren, stimuleren en motiveren voor een duurzame circulaire economie versneld door de huidige technologie. Wij richten ons op Helmond en Brainport Regio.
+            <br><br>
+            <a href="http://www.beginstation.nl/" class="infolink">www.beginstation.nl</a>
+          </p>
+
+          <p class="abouttitle">Myrell Richardson</p>
+          <p class="abouttext">   
+            Myrell Richardson is een tweedejaars ICT student aan het ROC Ter AA in Helmond.
           </p>
         </div>
       </div> 

@@ -1,6 +1,7 @@
 <?php
   session_start();
   require("inc/connect.php");
+  require("inc/functions.php");
 
   if (!isset($_SESSION['userID'])) {
   header("Location: index.php");
@@ -14,7 +15,7 @@ $buildingquery = "
   WHERE userID = user_ID
   ";
 
-$orderBy = " ORDER BY buildingID ASC";
+$orderBy = " ORDER BY buildingID DESC";
 
 if (isset($_GET['ruimte']) && $_GET['ruimte'] != "") {
   $searchRuimte = $_GET['ruimte'];
@@ -85,6 +86,26 @@ if (isset($_GET['parkeer']) && $_GET['parkeer'] != "") {
   $searchParking = $_GET['parkeer'];
   $buildingquery = $buildingquery . " AND parking = '" . $searchParking . "'";
 }
+if (isset($_GET['sort'])) {
+  if ($_GET['sort'] == 1) {
+    $orderBy = " ORDER BY buildingID DESC";
+  }
+  if ($_GET['sort'] == 2) {
+    $orderBy = " ORDER BY buildingID ASC";
+  }
+  if ($_GET['sort'] == 3) {
+    $orderBy = " ORDER BY name ASC";
+  }
+  if ($_GET['sort'] == 4) {
+    $orderBy = " ORDER BY name DESC";
+  }
+  if ($_GET['sort'] == 5) {
+    $orderBy = " ORDER BY space ASC";
+  }
+  if ($_GET['sort'] == 6) {
+    $orderBy = " ORDER BY space DESC";
+  }
+}
 
 $buildingquery = $buildingquery . $orderBy;
 
@@ -96,17 +117,35 @@ $BuildingArray = array();
     $BuildingArray[] = $result;
   }
 
-$even = "1";
-$count = 0;
+if (!isset($_GET['page'])) {
+  $slice = 0;
+  $active = 1;
+}
+elseif ($_GET['page'] == 1) {
+  $slice = 0;
+  $active = 1;
+}
+else{
+  $slice = $_GET['page'] - 1;
+  $active = $_GET['page'];
+}
+
+$slice = $slice * 10;
+
+$BuildingArray = array_slice($BuildingArray, $slice,10);
+
 $pagecount = mysqli_num_rows($buildingresource);
 $pagecount = $pagecount/10;
 $pagecount = ceil($pagecount);
+
+$even = "1";
+$count = 0 + $slice;
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
@@ -130,16 +169,29 @@ $pagecount = ceil($pagecount);
       <div id="search-container">
         <?php include("inc/searchform.php") ?>
       </div>
+      <div id="pagination-div">
+          <?php for ($x=1; $x <= $pagecount; $x++) { 
+            if ($x == $active) {
+              $pageclass = "pagination-active";
+            }
+            else{
+              $pageclass = "pagination";
+            }
+          ?>
+
+            <a href="main.php?page=<?php echo $x; ?>" class="<?php echo $pageclass ?>"><?php echo $x ?></a>
+          <?php } ?>
+      </div>
+
         <div class="search-result">
           <?php foreach ($BuildingArray as $item) { 
+            $count++;
             if ($item['space'] == 0) {
               $space = "Niet bekend";
             }
             else{
               $space = $item['space'] . " m²"; 
             }
-
-            $count++;
             if ($even == "0") {
               $container = "item-container";
               $resultinfo = "result-info";
@@ -165,7 +217,6 @@ $pagecount = ceil($pagecount);
               <img src=<?php echo $picture ?> class="result-img">
               <div class=<?php echo $resultinfo ?>>
                 <div class="result-title-div">
-                  <?php echo $pagecount ?>
                   <p>Naam</p>
                   <p>Adres</p>
                   <p>Postcode</p>
@@ -174,12 +225,12 @@ $pagecount = ceil($pagecount);
                   <p>Eigenaar</p>
                 </div>
                 <div class="result-div">
-                  <p class="result-name"><?php echo $item['name'] ?></p>
-                  <p><?php echo $item['street'] . " " . $item['strnumber'] ?></p>
-                  <p><?php echo $item['areacode'] ?></p>
-                  <p><?php echo $item['renttime'] ?></p>
-                  <p><?php echo $space; ?></p>
-                  <p><?php echo $item['firstName'] . " " . $item['lastName'] ?></p>
+                  <p class="result-name"><?php echo e($item['name']); ?></p>
+                  <p><?php echo e($item['street'] . " " . $item['strnumber']); ?></p>
+                  <p><?php echo e($item['areacode']); ?></p>
+                  <p><?php echo $item['renttime']; ?></p>
+                  <p><?php echo e($space); ?></p>
+                  <p><?php echo e($item['firstName'] . " " . $item['lastName']); ?></p>
                 </div>
                 <div class="result-div-buttons">
                   <a class="info-button" href="details.php?id=<?php echo $item['buildingID']; ?>">Meer info</a>
@@ -189,8 +240,16 @@ $pagecount = ceil($pagecount);
           <?php } ?>
         </div>
           <div id="pagination-div">
-          <?php for ($x=1; $x <= $pagecount; $x++) { ?>
-            <a href="" class="pagination"><?php echo $x ?></a>
+          <?php for ($x=1; $x <= $pagecount; $x++) { 
+            if ($x == $active) {
+              $pageclass = "pagination-active";
+            }
+            else{
+              $pageclass = "pagination";
+            }
+          ?>
+
+            <a href="main.php?page=<?php echo $x; ?>" class="<?php echo $pageclass ?>"><?php echo $x ?></a>
           <?php } ?>
         </div>
       </div> 

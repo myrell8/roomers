@@ -1,6 +1,7 @@
 <?php
   session_start();
 	require("inc/connect.php");
+  require("inc/functions.php");
 
   if (!isset($_SESSION['userID'])) {
     header("Location: index.php");
@@ -92,25 +93,25 @@ $id =  $_GET['id'];
             <input type="hidden" name="buildingID" value="<?php echo $id ?>">
             <div>
               <span>Naam advertentie*</span>
-              <input type="text" name="addname" required value="<?php echo $row['name']; ?>">
+              <input type="text" name="addname" required value="<?php echo e($row['name']); ?>">
             </div>
           </div>
           <div id="mid">
             <div>
               <span>Straatnaam*</span> 
-              <input type="text" name="street" required value="<?php echo $row['street']; ?>"">
+              <input type="text" name="street" required value="<?php echo e($row['street']); ?>"">
             </div>
             <div>
               <span>Huisnummer*</span>
-              <input type="text" name="number" required value="<?php echo $row['strnumber']; ?>">
+              <input type="text" name="number" required value="<?php echo e($row['strnumber']); ?>">
             </div>
             <div>
               <span>Postcode*</span>
-              <input type="text" name="areacode" required value="<?php echo $row['areacode']; ?>">
+              <input type="text" name="areacode" required value="<?php echo e($row['areacode']); ?>">
             </div>
             <div>
               <span>Stad*</span>
-              <input type="text" name="city" required value="<?php echo $row['city']; ?>">
+              <input type="text" name="city" required value="<?php echo e($row['city']); ?>">
             </div>
             <div>
               <span>Type gebouw</span>
@@ -139,11 +140,11 @@ $id =  $_GET['id'];
             </div>
             <div>
               <span>Bouwjaar</span>
-              <input type="text" name="year" value="<?php echo $row['year']; ?>">
+              <input type="text" name="year" value="<?php echo e($row['year']); ?>">
             </div>
             <div>
               <span>Ruimte (m²)</span>
-              <input type="text" name="space" value="<?php echo $row['space']; ?>">
+              <input type="text" name="space" value="<?php echo e($row['space']); ?>">
             </div>
             <?php 
             ?>
@@ -173,7 +174,7 @@ $id =  $_GET['id'];
           </div> 
           <div id="bot">
             <p>Beschrijving*</p>
-            <textarea name="description" cols="100" rows="10" required><?php echo $row['description']; ?></textarea>
+            <textarea name="description" cols="100" rows="10" required><?php echo e($row['description']); ?></textarea>
           </div>
           <input type="submit" id="create-button" value="Bewerk advertentie" name="submit">
         </div>

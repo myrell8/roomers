@@ -1,18 +1,13 @@
-@import "https://fonts.googleapis.com/css?family=Montserrat";
-@import "https://fonts.googleapis.com/css?family=Ubuntu:400,700";
 @import "https://fonts.googleapis.com/css?family=Roboto";
 
 html {
-  font: 16px/1.5 'Montserrat', sans-serif;
-  height: 100%;
+  font: 16px/1.5 'Roboto', sans-serif;
 }
 
 body {
   background-color: white;
   background-size: cover;
-  height: 100%;
 }
-
 body::-webkit-scrollbar {
   width: 0px;
   background-color: #3F5765;
@@ -339,7 +334,6 @@ text-decoration:none !important;
     margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }
 
-
 /* Navigation sidemenu */
 
 #mySidenav {
@@ -424,7 +418,7 @@ text-decoration:none !important;
 }
 #mainpic{
   width: 70%;
-  height: 30%;
+  height: 680px;
   margin-top: 50px;
   transition: 0.5s;
 }
@@ -443,7 +437,6 @@ text-decoration:none !important;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 20px;
 }
 .item-container{
   width: 100%;
@@ -538,6 +531,7 @@ text-decoration:none !important;
   width: 100%;
   display: flex;
   justify-content: center;
+  background-color: #2B3A42;
 }
 .pagination{
   display: flex;
@@ -545,6 +539,16 @@ text-decoration:none !important;
   align-items: center;
   margin: 10px;
   background-color: #EFEFEF;
+  width: 30px;
+  height: 30px;
+  color: black !important;
+}
+.pagination-active{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  background-color: orange;
   width: 30px;
   height: 30px;
   color: black !important;
@@ -566,7 +570,6 @@ text-decoration:none !important;
   transition: 1s;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
-  border-bottom: 3px solid #BDD4DE;
 }
 .fa-arrows-v{
   margin-left: 20px;
@@ -579,6 +582,7 @@ text-decoration:none !important;
   width: 100%;
   background-color: #2B3A42;
   color: white;
+  border-top: 3px solid #BDD4DE;
 }
 #search-form{
   margin: 0 auto;
@@ -619,6 +623,46 @@ text-decoration:none !important;
 }
 #search-button:hover{
   background-color: #FF530D;
+}
+#sort-div{
+  width: 100%;
+}
+#sort-form{
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  padding-bottom: 10px;
+  background-color: #2B3A42;
+}
+#sort-form p{
+  height: 30px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: white;
+  padding-left: 10px;
+}
+#sort-form select{
+  width: 25%;
+  height: 30px;
+  margin-left: 10px;
+}
+#sort-button{
+  width: 10%;
+  padding: 5px;
+  background-color: #3F5765;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  margin-right: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  cursor: pointer;
+  margin-left: 10px;
+  height: 30px;
 }
 
 /* Account */
@@ -774,11 +818,12 @@ text-decoration:none !important;
 }
 #user-add{
   margin-bottom: 20px;
-  max-height: 250px;
+  max-height: 500px;
   overflow-y: auto;
   width: 100%;
-  border: 3px solid #3f5765;
-  border-radius: 3px;
+  border: 3px solid #2B3A42;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
 }
 #user-add::-webkit-scrollbar {
   width: 10px;
@@ -805,11 +850,22 @@ text-decoration:none !important;
 }
 #addspan{
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  font-size: 140%;
-  margin-bottom: 10px;
-  margin-top: -20px;
+  margin-top: 20px;
+  font-size: 300%;
+  background-color: #2B3A42;
+  padding: 20px;
+  color: white;
+  height: 120px;
+}
+.description{
+  resize: none;
+  max-width: 95%;
+  min-width: 95%;
+  max-height: 150px;
+  min-height: 150px;
 }
 
 /* Image Upload */
@@ -1005,6 +1061,10 @@ b{
   background-color: #BDD4DE;
   border-left: 2px solid #3F5765;
   border-right: 2px solid #3F5765;
+}
+.infolink{
+  color: blue !important;
+  font-style: italic;
 }
 #footer{
   display: flex;

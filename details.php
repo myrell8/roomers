@@ -1,6 +1,7 @@
 <?php
   session_start();
 	require("inc/connect.php");
+  require("inc/functions.php");
 
   if (!isset($_SESSION['userID'])) {
     header("Location: index.php");
@@ -150,19 +151,19 @@ if ($row['picture1'] == NULL)
         <div id="details-div">
           <div class="details-element">
             <p class="detail-title">Naam</p>
-            <p><?php echo $row['name']; ?></p>
+            <p><?php echo e($row['name']); ?></p>
           </div>
           <div class="details-element">
             <p class="detail-title">Adres</p>
-            <p><?php echo $row['street'] . " " . $row['strnumber'];?></p>
+            <p><?php echo e($row['street'] . " " . $row['strnumber']);?></p>
           </div>
           <div class="details-element">
             <p class="detail-title">Postcode</p>
-            <p><?php echo $row['areacode']; ?></p>
+            <p><?php echo e($row['areacode']); ?></p>
           </div>
           <div class="details-element">
             <p class="detail-title">Stad</p>
-            <p><?php echo $row['city']; ?></p>
+            <p><?php echo e($row['city']); ?></p>
           </div>
           <div class="details-element">
             <p class="detail-title">Type gebouw</p>
@@ -174,11 +175,11 @@ if ($row['picture1'] == NULL)
           </div>
           <div class="details-element">
             <p class="detail-title">Bouwjaar</p>
-            <p><?php echo $row['year']; ?></p>
+            <p><?php echo e($row['year']); ?></p>
           </div>
           <div class="details-element">
             <p class="detail-title">Ruimte beschikbaar</p>
-            <p><?php echo $space; ?></p>
+            <p><?php echo e($space); ?></p>
           </div>
           <div class="details-element">
             <p class="detail-title">Verdiepingen</p>
@@ -190,16 +191,16 @@ if ($row['picture1'] == NULL)
           </div>
           <div class="details-element">
             <p class="detail-title">Naam eigenaar</p>
-            <p><?php echo $userrow['firstName'] . " " . $userrow['lastName']; ?></p>
+            <p><?php echo e($userrow['firstName'] . " " . $userrow['lastName']); ?></p>
           </div>
           <div class="details-element">
             <p class="detail-title">Telefoon</p>
-            <p><?php echo $userrow['phone']; ?></p>
+            <p><?php echo e($userrow['phone']); ?></p>
           </div>
         </div>
         <div id="details-description">
           <p class="detail-title" id="desc-title">Omschrijving</p>
-          <p id="description"><?php echo $row['description'] ?></p>
+          <p id="description"><?php echo e($row['description']); ?></p>
         </div>
         <a href="react.php?id=<?php echo $_GET['id']; ?>" class="reactbutton">Stuur een reactie</a>
       </div>

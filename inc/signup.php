@@ -8,7 +8,12 @@ $password = $_POST['password'];
 $reEnterPassword = $_POST['repassword'];
 $firstname = $_POST['firstname'];
 $lastname = $_POST['lastname'];
-$phone = $_POST['phone'];
+if ($_POST['phone'] == null) {
+	$phone = "n.v.t";
+}
+else{
+	$phone = $_POST['phone'];
+}
 $salt = uniqid(mt_rand(), true);
 
 $query = "SELECT * FROM user WHERE email = '$email' LIMIT 1";
