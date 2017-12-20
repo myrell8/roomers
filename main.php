@@ -3,9 +3,9 @@
   require("inc/connect.php");
   require("inc/functions.php");
 
-  if (!isset($_SESSION['userID'])) {
-  header("Location: index.php");
-}
+  // if (!isset($_SESSION['userID'])) {
+  // header("Location: index.php");
+  // }
 
 $connect = connectToDB();
 
@@ -16,6 +16,15 @@ $buildingquery = "
   ";
 
 $orderBy = " ORDER BY buildingID DESC";
+$typefiltered = 0;
+$typemax = -1;
+$searchType = "";
+
+$checkbox1 = "";
+$checkbox2 = "";
+$checkbox3 = "";
+$checkbox4 = "";
+$checkbox5 = "";
 
 if (isset($_GET['ruimte']) && $_GET['ruimte'] != "") {
   $searchRuimte = $_GET['ruimte'];
@@ -71,12 +80,6 @@ if (isset($_GET['tijd']) && $_GET['tijd'] != "") {
   $searchTijd = $_GET['tijd'];
   $buildingquery = $buildingquery . " AND renttime = '" . $searchTijd . "'";
 }
-
-if (isset($_GET['type']) && $_GET['type'] != "") {
-  $searchType = $_GET['type'];
-  $buildingquery = $buildingquery . " AND mainfunction = '" . $searchType . "'";
-}
-
 if (isset($_GET['verdiepingen']) && $_GET['verdiepingen'] != "") {
   $searchLayers = $_GET['verdiepingen'];
   $buildingquery = $buildingquery . " AND layers = '" . $searchLayers . "'";
@@ -86,6 +89,77 @@ if (isset($_GET['parkeer']) && $_GET['parkeer'] != "") {
   $searchParking = $_GET['parkeer'];
   $buildingquery = $buildingquery . " AND parking = '" . $searchParking . "'";
 }
+
+if (isset($_GET['type1']) && $_GET['type1'] != "") {
+    $typemax = $typemax + 1;
+    $checkbox1 = "checked";
+}
+if (isset($_GET['type2']) && $_GET['type2'] != "") {
+    $typemax = $typemax + 1;
+    $checkbox2 = "checked";
+}
+if (isset($_GET['type3']) && $_GET['type3'] != "") {
+    $typemax = $typemax + 1;
+    $checkbox3 = "checked";
+}
+if (isset($_GET['type4']) && $_GET['type4'] != "") {
+    $typemax = $typemax + 1;
+    $checkbox4 = "checked";
+}
+if (isset($_GET['type5']) && $_GET['type5'] != "") {
+    $typemax = $typemax + 1;
+    $checkbox5 = "checked";
+}
+
+if (isset($_GET['type1']) && $_GET['type1'] != "" && $typefiltered < $typemax) {
+  $searchType = $searchType . "'" . $_GET['type1'] . "', ";
+  $typefiltered++;
+}
+else if (isset($_GET['type1']) && $_GET['type1'] != "") {
+  $searchType = $searchType . "'" . $_GET['type1'] . "'";
+}
+
+
+if (isset($_GET['type2']) && $_GET['type2'] != "" && $typefiltered < $typemax) {
+  $searchType = $searchType . "'" . $_GET['type2'] . "', ";
+  $typefiltered++;
+}
+else if (isset($_GET['type2']) && $_GET['type2'] != "") {
+  $searchType = $searchType . "'" . $_GET['type2'] . "'";
+}
+
+
+if (isset($_GET['type3']) && $_GET['type3'] != "" && $typefiltered < $typemax) {
+  $searchType = $searchType . "'" . $_GET['type3'] . "', ";
+  $typefiltered++;
+}
+else if (isset($_GET['type3']) && $_GET['type3'] != "") {
+  $searchType = $searchType . "'" . $_GET['type3'] . "'";
+}
+
+
+if (isset($_GET['type4']) && $_GET['type4'] != "" && $typefiltered < $typemax) {
+  $searchType = $searchType . "'" . $_GET['type4'] . "', ";
+  $typefiltered++;
+}
+else if (isset($_GET['type4']) && $_GET['type4'] != "") {
+  $searchType = $searchType . "'" . $_GET['type4'] . "'";
+}
+
+
+if (isset($_GET['type5']) && $_GET['type5'] != "" && $typefiltered < $typemax) {
+  $searchType = $searchType . "'" . $_GET['type5'] . "', ";
+  $typefiltered++;
+}
+else if (isset($_GET['type5']) && $_GET['type5'] != "") {
+  $searchType = $searchType . "'" . $_GET['type5'] . "'";
+}
+
+
+if (isset($_GET['type1']) || isset($_GET['type2']) || isset($_GET['type3']) || isset($_GET['type4']) || isset($_GET['type5'])) {
+  $buildingquery = $buildingquery . " AND mainfunction IN (" . $searchType . ")";
+}
+
 if (isset($_GET['sort'])) {
   if ($_GET['sort'] == 1) {
     $orderBy = " ORDER BY buildingID DESC";
@@ -138,52 +212,45 @@ $pagecount = mysqli_num_rows($buildingresource);
 $pagecount = $pagecount/10;
 $pagecount = ceil($pagecount);
 
-$even = "1";
 $count = 0 + $slice;
 ?>
 
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-<meta name="description" content="Roomers">
-<meta name="author" content="Myrell Richardson">
-<link rel="icon" href="img/logo.png">
-<title>Roomers</title>
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Roomers">
+  <meta name="author" content="Myrell Richardson">
+  <link rel="icon" href="img/logo.png">
+  <title>Roomers</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,600" rel="stylesheet">
+  <script defer src="lib/fontawesome/everything.min.js"></script>
+  <script defer src="lib/fontawesome/fontawesome.min.js"></script>
+
+  <link rel="stylesheet" href="css/main.css">
 </head>
 
-<body>
-  <?php  
-    include("inc/header.php");
-    include("inc/navigation.php");
-  ?>
-  <div id="mainpage">
-    <img src="img/main.jpg" id="mainpic">
-    <div id="content-container">
-      <div id="search-open">Zoekfilters<i class="fa fa-arrows-v" aria-hidden="true"></i></div>
-      <div id="search-container">
+<body ondragstart="return false">
+  <?php include 'inc/header.php'; ?>
+  <section class="ads">
+    <div class="inner">
+      <div class="item-filters">
         <?php include("inc/searchform.php") ?>
       </div>
-      <div id="pagination-div">
-          <?php for ($x=1; $x <= $pagecount; $x++) { 
-            if ($x == $active) {
-              $pageclass = "pagination-active";
-            }
-            else{
-              $pageclass = "pagination";
-            }
-          ?>
-
-            <a href="main.php?page=<?php echo $x; ?>" class="<?php echo $pageclass ?>"><?php echo $x ?></a>
-          <?php } ?>
-      </div>
-
-        <div class="search-result">
+      <div class="ad-items">
+        <div class="ads-head">
+          <div class="item-search">
+            <div class="control">
+              <input class="input" type="text" placeholder="Zoek hier">
+            </div>
+          </div>
+        </div>
+        <div class="items-holder">
           <?php foreach ($BuildingArray as $item) { 
             $count++;
             if ($item['space'] == 0) {
@@ -192,73 +259,41 @@ $count = 0 + $slice;
             else{
               $space = $item['space'] . " m²"; 
             }
-            if ($even == "0") {
-              $container = "item-container";
-              $resultinfo = "result-info";
-              $even = "1";
-            }
-            else
-            {
-              $container = "item-container2";
-              $resultinfo = "result-info2";
-              $even = "0";
-            }
-
             if ($item['picture1'] == NULL) {
               $picture = "img/noimg.jpg";
             }
             else
             {
-              $picture = $item['picture1'];
-            } ?>
-
-            <div class=<?php echo $container ?>>
-              <p><?php echo $count; ?></p>
-              <img src=<?php echo $picture ?> class="result-img">
-              <div class=<?php echo $resultinfo ?>>
-                <div class="result-title-div">
-                  <p>Naam</p>
-                  <p>Adres</p>
-                  <p>Postcode</p>
-                  <p>Beschikbaarheid</p>
-                  <p>Ruimte</p>
-                  <p>Eigenaar</p>
-                </div>
-                <div class="result-div">
-                  <p class="result-name"><?php echo e($item['name']); ?></p>
-                  <p><?php echo e($item['street'] . " " . $item['strnumber']); ?></p>
-                  <p><?php echo e($item['areacode']); ?></p>
-                  <p><?php echo $item['renttime']; ?></p>
-                  <p><?php echo e($space); ?></p>
-                  <p><?php echo e($item['firstName'] . " " . $item['lastName']); ?></p>
-                </div>
-                <div class="result-div-buttons">
-                  <a class="info-button" href="details.php?id=<?php echo $item['buildingID']; ?>">Meer info</a>
-                </div>
-              </div>
-            </div>
-          <?php } ?>
-        </div>
-          <div id="pagination-div">
-          <?php for ($x=1; $x <= $pagecount; $x++) { 
-            if ($x == $active) {
-              $pageclass = "pagination-active";
-            }
-            else{
-              $pageclass = "pagination";
+              $picture = 'img/items/' . $item['picture1'];
             }
           ?>
-
-            <a href="main.php?page=<?php echo $x; ?>" class="<?php echo $pageclass ?>"><?php echo $x ?></a>
+          <div class="item-card">
+            <a class="item-card-img" href="details.php?id=<?php echo $item['buildingID'];?>">
+              <img src=<?php echo $picture ?>>
+            </a>
+            <div class="item-card-info">
+              <a class="item-card-btn" href="details.php?id=<?php echo $item['buildingID'];?>">
+                <?php echo e($item['name']); ?>
+              </a>
+              <div class="item-card-desc">
+                <div class="item-info"><label>Stad:</label><span><?php echo $item['city']; ?></span></div>
+                <div class="item-info"><label>Adres:</label><span><?php echo e($item['street'] . " " . $item['strnumber']); ?></span></div>
+                <div class="item-info"><label>Postcode:</label><span><?php echo e($item['areacode']); ?></span></div>
+                <div class="item-info"><label>Beschikbaar:</label><span><?php echo $item['renttime']; ?></span></div>
+                <div class="item-info"><label>Ruimte:</label><span><?php echo e($space); ?></span></div>
+              </div>
+              <div class="item-card-new">
+                Nieuw
+              </div>
+            </div>
+          </div>
           <?php } ?>
-        </div>
-      </div> 
+        </div>         
+      </div>
     </div>
+  </section>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="lib/main.js"></script>
 </body>
-
-<!-- JQuery and Ajax scripts -->
-<script type="text/javascript" src="js/jquery-3.2.1.min.js">
-</script><script src="js/index.js"></script>
-
 
 </html>
