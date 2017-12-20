@@ -51,7 +51,12 @@
         <div class="field is-grouped">
         <?php
           if (isset($_SESSION['userID'])) { ?>
-          <div>esketit</div>
+          Ingelogd als <?php echo $_SESSION['username']; ?>
+          <p class="control">
+              <a class="button is-primary" href="https://github.com/jgthms/bulma/archive/0.5.1.zip">
+                <span>Logout</span>
+              </a>
+          </p>
         <?php } else { ?>
             <p class="control">
               <a class="bd-tw-button button" data-social-network="Twitter" data-social-action="tweet" data-social-target="http://localhost:4000" target="_blank" href="#">
