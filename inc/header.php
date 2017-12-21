@@ -53,20 +53,20 @@
           if (isset($_SESSION['userID'])) { ?>
           Ingelogd als <?php echo $_SESSION['username']; ?>
           <p class="control">
-              <a class="button is-primary" href="https://github.com/jgthms/bulma/archive/0.5.1.zip">
+              <a class="button is-primary" href="inc/logout.php">
                 <span>Logout</span>
               </a>
           </p>
         <?php } else { ?>
             <p class="control">
-              <a class="bd-tw-button button" data-social-network="Twitter" data-social-action="tweet" data-social-target="http://localhost:4000" target="_blank" href="#">
+              <a class="bd-tw-button button" data-social-network="Twitter" data-social-action="tweet" data-social-target="http://localhost:4000" target="_blank" href="login.php">
                 <span>
                   Inloggen
                 </span>
               </a>
             </p>
             <p class="control">
-              <a class="button is-primary" href="https://github.com/jgthms/bulma/archive/0.5.1.zip">
+              <a class="button is-primary" href="register.php">
                 <span>Registeren</span>
               </a>
             </p>
